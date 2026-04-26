@@ -15,7 +15,22 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, padding: 0 }}>{children}</body>
+      <head>
+        <style>{`
+          *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+          html { scroll-behavior: smooth; }
+          body {
+            background: #0a0a0a;
+            color: #ededed;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          a { color: inherit; text-decoration: none; }
+          ::selection { background: rgba(255,255,255,0.15); }
+        `}</style>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
