@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import '../globals.css';
 
 export const metadata: Metadata = {
   title: 'Lock — AI Nutrition Tracking',
@@ -14,21 +15,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <style>{`
-          *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-          html { scroll-behavior: smooth; }
-          body {
-            background: #0a0a0a;
-            color: #ededed;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
-          a { color: inherit; text-decoration: none; }
-          ::selection { background: rgba(255,255,255,0.15); }
-        `}</style>
+        {/* Anti-flash: apply saved theme before first paint */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('lock-theme');if(t==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}})();` }} />
       </head>
       <body>{children}</body>
     </html>
