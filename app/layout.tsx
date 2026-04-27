@@ -15,10 +15,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Anti-flash: apply saved theme before first paint */}
-        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('lock-theme');if(t==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}})();` }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){
+            var stored = localStorage.getItem('lock-dark');
+            var dark = stored === null ? true : stored === 'true';
+            if (dark) {
+              document.documentElement.classList.add('dark');
+              document.body && document.body.classList.add('dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+              document.body && document.body.classList.remove('dark');
+            }
+          })();`
+        }} />
       </head>
       <body>{children}</body>
     </html>
