@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const APPSTORE_URL = 'https://apps.apple.com/app/id6762630080';
@@ -48,8 +48,8 @@ const COPY = {
     },
     social: {
       eyebrow: 'Community',
-      title: 'You don’t lock in alone.',
-      sub: 'The hardest part of nutrition isn’t the math. It’s showing up on day 47. Lock’s social layer turns consistency into something you do with friends — not against an app.',
+      title: "You don't lock in alone.",
+      sub: "The hardest part of nutrition isn't the math. It's showing up on day 47. Lock's social layer turns consistency into something you do with friends — not against an app.",
       bullets: [
         'Daily streaks across your friend group',
         'Friends leaderboard, refreshed daily',
@@ -61,9 +61,12 @@ const COPY = {
       eyebrow: 'Reviews',
       title: 'People who locked in.',
       items: [
-        { q: 'I’ve tried six calorie apps. Lock is the first one I actually opened on day 30. The photo scan removes every excuse.', n: 'Maya R.', h: '@mayalifts', av: 'M' },
-        { q: 'My roommate and I check the leaderboard every morning. Down 8lb in a month and I’m not even mad about it.', n: 'Daniel K.', h: '@dkim_', av: 'D' },
-        { q: 'Finally a tracker that doesn’t feel like a spreadsheet. The macro breakdown is genuinely useful.', n: 'Sara L.', h: '@saralifts', av: 'S' },
+        { q: "I've tried six calorie apps. Lock is the first one I actually opened on day 30. The photo scan removes every excuse.", n: 'Maya R.', h: '@mayalifts', av: 'M' },
+        { q: "My roommate and I check the leaderboard every morning. Down 8lb in a month and I'm not even mad about it.", n: 'Daniel K.', h: '@dkim_', av: 'D' },
+        { q: "Finally a tracker that doesn't feel like a spreadsheet. The macro breakdown is genuinely useful.", n: 'Sara L.', h: '@saralifts', av: 'S' },
+        { q: "The AI scan nailed my homemade pasta — within 12 kcal of what I calculated manually. That's when I stopped second-guessing it.", n: 'Alex T.', h: '@alextfit', av: 'A' },
+        { q: '45-day streak. Never done that with any habit app. The leaderboard guilt is motivating in a way solo tracking never was.', n: 'Jordan M.', h: '@jordanmoves', av: 'J' },
+        { q: 'Three taps to log a meal is exactly right. Enough friction to stay intentional, not enough to quit.', n: 'Priya K.', h: '@priyakfit', av: 'P' },
       ],
     },
     faq: {
@@ -72,9 +75,9 @@ const COPY = {
       items: [
         { q: 'How accurate is the photo recognition?', a: 'Lock uses a vision model fine-tuned on hundreds of thousands of meal photos. For typical home and restaurant meals it estimates within ~10% of actual macros — and you can always fine-tune any entry by hand.' },
         { q: 'Is Lock free?', a: 'Yes — the core experience is free, including unlimited photo scans, daily logging, streaks, and the social leaderboard. Lock Pro unlocks deeper AI summaries and weekly coaching.' },
-        { q: 'Does it work without internet?', a: 'You can log meals offline; photo recognition runs in the cloud, so it syncs when you’re back online.' },
+        { q: 'Does it work without internet?', a: "You can log meals offline; photo recognition runs in the cloud, so it syncs when you're back online." },
         { q: 'Will my friends see what I eat?', a: 'Only if you choose to share. Streaks and total calories appear on the leaderboard; meal photos only show up in Moments when you post them.' },
-        { q: 'What’s on the roadmap?', a: 'Android, Apple Watch logging, restaurant menu scanning, and group challenges with custom rules — in that order.' },
+        { q: "What's on the roadmap?", a: 'Android, Apple Watch logging, restaurant menu scanning, and group challenges with custom rules — in that order.' },
       ],
     },
     cta: { title1: 'Ready to', title2: 'lock in?', sub: 'Free to download. Three taps to your first logged meal.', btn: 'Download on the App Store' },
@@ -142,6 +145,9 @@ const COPY = {
         { q: '试过六个卡路里 App，Lock 是第一个我用到第 30 天还在打开的。拍照识别让我没有任何借口。', n: 'Maya R.', h: '@mayalifts', av: 'M' },
         { q: '我和室友每天早上都看一眼排行榜。一个月瘦了 8 磅，而且过程一点也不痛苦。', n: 'Daniel K.', h: '@dkim_', av: 'D' },
         { q: '终于有一个不像 Excel 的记录 App。宏量拆解是真有用，不是装样子。', n: 'Sara L.', h: '@saralifts', av: 'S' },
+        { q: 'AI 精准到了我自制意面 —— 和我手动计算的结果只差 12 kcal。从那以后我就不再怀疑它了。', n: 'Alex T.', h: '@alextfit', av: 'A' },
+        { q: '45 天连胜。这是我用任何习惯 App 以来坚持最久的一次。排行榜那种"被看见的压力"，比单打独斗有效多了。', n: 'Jordan M.', h: '@jordanmoves', av: 'J' },
+        { q: '三步记一餐，刚刚好。摩擦感够让你保持专注，又不至于让你放弃。', n: 'Priya K.', h: '@priyakfit', av: 'P' },
       ],
     },
     faq: {
@@ -429,35 +435,33 @@ function Showcase({ t }: { t: T }) {
   };
 
   return (
-    <section id="screens" className="lk-section-tight">
-      <div className="showcase">
-        <FadeUp className="section-head">
+    <section id="screens" className="sc-section">
+      <div className="sc-inner">
+        <FadeUp className="section-head center">
           <span className="eyebrow">{t.showcase.eyebrow}</span>
-          <h2 className="h1" style={{ color: '#fff' }}>{t.showcase.title}</h2>
+          <h2 className="h1">{t.showcase.title}</h2>
           <p className="body-lg">{t.showcase.sub}</p>
         </FadeUp>
 
-        <div className="showcase-grid">
-          <div className="showcase-tabs">
+        <div className="sc-grid">
+          <div className="sc-tabs">
             {tabs.map((tab, i) => (
               <button
                 key={i}
-                className="showcase-tab"
+                className="sc-tab"
                 data-active={idx === i}
                 onClick={() => pickTab(i)}
               >
-                <span className="ix">0{i+1} / 0{tabs.length}</span>
-                <div className="t-title">{tab.t}</div>
-                <div className="t-desc">{tab.d}</div>
-                {idx === i && (
-                  <div className="showcase-progress" style={{ width: progress + '%' }} />
-                )}
+                <span className="sc-tab-title">{tab.t}</span>
+                <span className="sc-tab-desc">{tab.d}</span>
+                {idx === i && <div className="sc-progress" style={{ width: progress + '%' }} />}
               </button>
             ))}
           </div>
 
-          <div className="showcase-phone-wrap">
-            <div className="showcase-phone">
+          <div className="sc-stage">
+            <div className="sc-glow" />
+            <div className="sc-phone">
               <div className="phone phone-xl">
                 <div className="phone-screen">
                   {tabs.map((tab, i) => (
@@ -800,16 +804,16 @@ function Social({ t }: { t: T }) {
             { r: 4, cls: '', n: 'sara_l', av: 'S', kc: 1180, streak: '2d', me: false },
             { r: 5, cls: '', n: 'locktest', av: 'L', kc: 920, streak: '1d', me: false },
           ].map(row => (
-            <div key={row.r} className="lb-row" style={row.me ? { background: 'var(--bg-soft)' } : {}}>
+            <FadeUp key={row.r} delay={Math.min(row.r - 1, 4) as 0|1|2|3|4} className="lb-row" style={row.me ? { background: 'var(--bg-soft)' } : {}}>
               <span className={`rank ${row.cls}`}>{row.cls === 'gold' ? '🥇' : row.cls === 'silver' ? '🥈' : row.cls === 'bronze' ? '🥉' : row.r}</span>
               <span className="av">{row.av}</span>
               <span className="nm">
                 {row.n}
                 {row.me && <span style={{ marginLeft: 8, fontSize: 10, padding: '2px 7px', background: 'var(--fg)', color: 'var(--fg-inverse)', borderRadius: 999, fontWeight: 600, letterSpacing: '0.04em' }}>ME</span>}
-                <span className="streak">🔥 {row.streak}</span>
+                <span className="streak">🔥 <CountUp value={row.streak} /></span>
               </span>
-              <span className="kc"><span className="tnum">{row.kc.toLocaleString()}</span><small> kcal</small></span>
-            </div>
+              <span className="kc"><CountUp value={String(row.kc)} /><small> kcal</small></span>
+            </FadeUp>
           ))}
         </FadeUp>
       </div>
@@ -819,28 +823,84 @@ function Social({ t }: { t: T }) {
 
 /* ── Testimonials ─────────────────────── */
 function Testi({ t }: { t: T }) {
+  const items = t.testi.items;
+  const [cur, setCur] = useState(0);
+  const dragging = useRef(false);
+  const startX = useRef(0);
+  const dragDelta = useRef(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setCur(c => (c + 1) % items.length), 4500);
+    return () => clearInterval(id);
+  }, [items.length]);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    dragging.current = true;
+    startX.current = e.clientX;
+    dragDelta.current = 0;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragging.current) return;
+    dragDelta.current = e.clientX - startX.current;
+  };
+  const onPointerUp = () => {
+    if (!dragging.current) return;
+    dragging.current = false;
+    if (dragDelta.current < -50) setCur(c => (c + 1) % items.length);
+    else if (dragDelta.current > 50) setCur(c => (c - 1 + items.length) % items.length);
+  };
+
+  const slideWidth = 100 / items.length;
+
+  const Card = ({ it }: { it: typeof items[number] }) => (
+    <>
+      <div className="stars">{[0,1,2,3,4].map(s => <Icon key={s} name="star" size={14} />)}</div>
+      <blockquote>&ldquo;{it.q}&rdquo;</blockquote>
+      <div className="who">
+        <div className="av">{it.av}</div>
+        <div><div className="name">{it.n}</div><div className="handle">{it.h}</div></div>
+      </div>
+    </>
+  );
+
   return (
     <section className="lk-section lk-container">
       <FadeUp className="section-head center">
         <span className="eyebrow">{t.testi.eyebrow}</span>
         <h2 className="h1">{t.testi.title}</h2>
       </FadeUp>
+
+      {/* Desktop: 3-column grid */}
       <div className="testi-grid">
-        {t.testi.items.map((it, i) => (
+        {items.map((it, i) => (
           <FadeUp key={i} delay={Math.min(i, 3) as 0|1|2|3} className="testi">
-            <div className="stars">
-              {[0,1,2,3,4].map(s => <Icon key={s} name="star" size={14} />)}
-            </div>
-            <blockquote>&ldquo;{it.q}&rdquo;</blockquote>
-            <div className="who">
-              <div className="av">{it.av}</div>
-              <div>
-                <div className="name">{it.n}</div>
-                <div className="handle">{it.h}</div>
-              </div>
-            </div>
+            <Card it={it} />
           </FadeUp>
         ))}
+      </div>
+
+      {/* Mobile: transform-based swipe carousel */}
+      <div className="testi-carousel">
+        <div
+          className="testi-track"
+          style={{ transform: `translateX(-${cur * slideWidth}%)`, width: `${items.length * 100}%` }}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+        >
+          {items.map((it, i) => (
+            <div key={i} className="testi-slide testi" style={{ width: `${slideWidth}%` }}>
+              <Card it={it} />
+            </div>
+          ))}
+        </div>
+        <div className="testi-dots">
+          {items.map((_, i) => (
+            <button key={i} className={`testi-dot${i === cur ? ' active' : ''}`} onClick={() => setCur(i)} aria-label={`Review ${i + 1}`} />
+          ))}
+        </div>
       </div>
     </section>
   );
